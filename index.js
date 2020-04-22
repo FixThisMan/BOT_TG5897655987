@@ -20,14 +20,39 @@ bot.on('message', msg=> {
 
     const chatId = msg.chat.id
 
-    bot.sendMessage(chatId, 'Клавиатура', {
-        reply_markup: {
-            keyboard: [
-                ['1', '2'],
-                ['3'],
-                ['5'],['6'],
-            ]
-        }
-    })
+    if (msg.text === 'Закрыть'){
+
+        bot.sendMessage(chatId, 'Закрыть клавиатуру', {
+            reply_markup: {
+                remove_keyboard:true
+            }
+        })
+
+    } else if (msg.text === 'Ответить') {
+
+        bot.sendMessage(chatId, 'Отвечаю', {
+            reply_markup: {
+                force_reply: true
+            }
+        })
+
+    }else {
+        bot.sendMessage(chatId, 'Клавиатура', {
+            reply_markup: {
+                keyboard: [
+                    [{
+                    text: 'Отправить местоположение',
+                        request_location: true
+                    }],
+                    ['Ответить','Закрыть'],
+                    [{
+                    text: 'Отправить контакт',
+                         request_contact: true
+                    }],
+                ]
+            }
+        })
+    }
+
 })
 
