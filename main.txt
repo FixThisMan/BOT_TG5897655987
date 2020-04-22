@@ -1,0 +1,3 @@
+https://github.com/yagop/node-telegram-bot-api
+https://nodejs.org/en/
+https://tlgrm.ru/docs/bots/api
